@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+
+        <style>
+
+            #square{
+                border: solid 3px green;
+                height: 40px;
+                width: 40px;
+
+            }
+
+
+
+        </style>
+
+
+
+    </head>
+    <body>
+
+        <div id="square">
+
+        </div>
+
+        <br>
+
+        <input id="bottone" type="button" value="clicca qui"/>
+        <input id="bottoneStop" type="button" value="stop"/>
+
+        <p id="txt"></p>
+
+        <br>
+        <br>
+
+        <p id="3param"></p>     
+
+
+
+        <script>
+
+            $("#bottone").click(function () {
+
+                setTimeout(function () {
+
+                    $("#square").css({"width": "180px",
+                        "height": "180px"});
+
+
+                }, 3000);
+
+            });
+
+        </script>
+
+        <script>
+            var contatore = 0;
+
+
+            $("#bottone").click(function () {
+
+
+
+                setInterval(function () {
+
+                    $("#txt").html("contatore: " + contatore)
+
+                    contatore++;
+
+                }, 1000);
+
+
+            });
+
+        </script>
+
+        <script>
+
+            /**
+             * ritorna rgb
+             * @param {type} r
+             * @param {type} g
+             * @param {type} b
+             * @returns {ritorna r, g, b}
+             */
+            function rgb(r, g, b) {
+
+
+
+                return "rgb(" + r + "," + g + "," + b + ")"
+
+            }
+
+        </script>
+
+        <script>
+            var idTimer = 0
+            var r = 0, g = 0, b = 0;
+
+            $("#bottone").click(function () {
+
+                idTimer = setInterval(function () {
+
+                    $("#3param").html("r :" + r + " g :" + g + " b :" + b)
+
+                    r++, g++, b++
+                    $("#square").css("background-color", rgb(r, g, b))
+                }, 50)
+
+
+                $("#bottone").attr("disabled", "disabled")
+            })
+
+
+        </script>
+
+        <script>
+
+            $("#bottone").click(function () {
+
+
+                $("#square").css("background-color", rgb(r, g, b))
+
+
+            })
+
+
+        </script>
+
+
+        <script>
+
+            $("#bottoneStop").click(function () {
+                clearInterval(idTimer);     
+                $("#bottone").removeAttr("disabled");
+            });
+
+
+
+        </script>
+
+
+
+
+
+    </body>
+</html>
